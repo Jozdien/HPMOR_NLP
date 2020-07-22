@@ -4,34 +4,34 @@ Harry Potter and the Methods of Rationality by Eliezer Yudkowsky is the best boo
 
 I look at the following things:
 
-* [The number of words and sentences in each chapter](#number-of-words-and-sentences-per-chapter)
-* [The normalized number of words and sentences in each chapter](#normalized-number-of-words-and-sentences-per-chapter)
-* [The number of words in each sentence](#number-of-words-per-sentence)
-* [The most common words and their frequencies](#most-common-words)
-* [The most common words and their frequencies in each chapter](#most-common-words-per-chapter)
-* [Frequencies of word lengths](#frequencies-of-word-lengths)
-* [Average word lengths across chapters](#average-word-length-per-chapter)
-* [Relative positions and dispersion of keywords](#disperson-of-keywords)
-* [Relative positions and dispersion of positive and negative sentences - Sentiment Analysis](#sentiment-analysis)
+[The number of words and sentences in each chapter](#number-of-words-and-sentences-per-chapter)
+[The normalized number of words and sentences in each chapter](#normalized-number-of-words-and-sentences-per-chapter)
+[The number of words in each sentence](#number-of-words-per-sentence)
+[The most common words and their frequencies](#most-common-words)
+[The most common words and their frequencies in each chapter](#most-common-words-per-chapter)
+[Frequencies of word lengths](#frequencies-of-word-lengths)
+[Average word lengths across chapters](#average-word-length-per-chapter)
+[Relative positions and dispersion of keywords](#disperson-of-keywords)
+[Relative positions and dispersion of positive and negative sentences - Sentiment Analysis](#sentiment-analysis)
 
 
 ### Number of Words and Sentences per Chapter
 
-![Count of Words and Sentences in Each Chapter]( "Count of Words and Sentences in Each Chapter")
+![Count of Words and Sentences in Each Chapter](https://github.com/Jozdien/HPMOR_NLP/blob/master/Graphs/Count%20of%20Words%20and%20Sentences%20in%20Each%20Chapter.png "Count of Words and Sentences in Each Chapter")
 
 Chapter lengths vary dramatically, with some chapters approacing the 10k word cap, and others trailing behind with less than a thousand words (and chapters like 99 representing a significant outlier).  The median range seems to be of 2000-4000 word chapters.
 
 
 ### Normalized Number of Words and Sentences per Chapter
 
-![Normalized Count of Words and Sentences in Each Chapter]( "Normalized Count of Words and Sentences in Each Chapter")
+![Normalized Count of Words and Sentences in Each Chapter](https://github.com/Jozdien/HPMOR_NLP/blob/master/Graphs/Normalized%20Count%20of%20Words%20and%20Sentences%20in%20Each%20Chapter.png "Normalized Count of Words and Sentences in Each Chapter")
 
 As can be seen, the number of sentences coincide almost exactly with the number of words across chapters, with few notable exceptions in already exceptionally long chapters.  This indicates that sentence length is consistent through the book.
 
 
 ### Number of Words per Sentence
 
-![Count of Words Per Sentence]( "Count of Words Per Sentence")
+![Count of Words Per Sentence](https://github.com/Jozdien/HPMOR_NLP/blob/master/Graphs/Number%20of%20Words%20in%20Each%20Sentence.png "Count of Words Per Sentence")
 
 The number of sentences worked against the data representation here.  The actual average sentence length is something much more reasonable, but because of the frequent (not frequent enough to seriously impact the average) presence of incredibly long sentences, the data ends up looking like this.
 
@@ -40,14 +40,16 @@ However, we do get an important piece of information from this: Eliezer loves lo
 
 ### Most Common Words
 
-![Most Common Words]( "Most Common Words")
+![Most Common Words](https://github.com/Jozdien/HPMOR_NLP/blob/master/Graphs/Frequencies%20of%20the%2050%20Most%20Common%20Words.png "Most Common Words")
 
 Perhaps the most striking (and in my opinion, only true) criticism of the book is best expressed by the fact that the two most common words by a considerable margin, are "Harry" and "said".  Following that are several names (I was surprised to find Draco ranked above Hermione, but not so much after considering that his name would have come up more often in third-person), and descriptive terms that are almost keywords into the nature of the story - 'think', 'know', 'right', 'might', are all words indicative of Harry's incessant nature to question the workings of the world, and flawed conceptions he sees in others.
 
 
 ### Most Common Words per Chapter
 
-![Most Common Words in Chapter]( "Most Common Words in Chapter")
+![Most Common Words in Chapter 1](https://github.com/Jozdien/HPMOR_NLP/blob/master/Graphs/Frequencies%20of%2020%20Most%20Common%20Words%20in%20Chapter%201.png "Most Common Words in Chapter 1")
+![Most Common Words in Chapter 45](https://github.com/Jozdien/HPMOR_NLP/blob/master/Graphs/Frequencies%20of%2020%20Most%20Common%20Words%20in%20Chapter%2045.png "Most Common Words in Chapter 45")
+![Most Common Words in Chapter 122](https://github.com/Jozdien/HPMOR_NLP/blob/master/Graphs/Frequencies%20of%2020%20Most%20Common%20Words%20in%20Chapter%20122.png "Most Common Words in Chapter 122")
 
 I looked at three chapters in particular here: Chapter 1: A Day of Very Low Probability, Chapter 45: Humanism, Pt 3 (My favourite chapter), and Chapter 122: Something to Protect: Hermione Granger.
 
@@ -60,21 +62,21 @@ Something notable about the last chapter is that it is the first word frequency 
 
 ### Frequencies of Word Lengths
 
-![Frequency Distribution of Word Lengths]( "Frequency Distribution of Word Lengths")
+![Frequency Distribution of Word Lengths](https://github.com/Jozdien/HPMOR_NLP/blob/master/Graphs/Frequencies%20of%20Word%20Lengths.png "Frequency Distribution of Word Lengths")
 
 The majority of words are between four and seven characters in length.  However, there is a significant portion of words that are seven or more letters in length.  The average length of a word in general English being less than 5 characters, this indicates a relatively complex prose.
 
 
 ### Average Word Length per Chapter
 
-![Distribution of Average Word Length across Chapters]( "Distribution of Average Word Length across Chapters")
+![Distribution of Average Word Length across Chapters](https://github.com/Jozdien/HPMOR_NLP/blob/master/Graphs/Average%20Word%20Length%20in%20Each%20Chapter.png "Distribution of Average Word Length across Chapters")
 
 As can be seen, most chapters average somewhere around the 6-character word length, with variance between adjacent chapters decreasing toward the end (again with the exception of Chapter 99).
 
 
 ### Disperson of Keywords
 
-![Dispersion Plot of Keyword Positions in the Book]( "Dispersion Plot of Keyword Positions in the Book")
+![Dispersion Plot of Keyword Positions in the Book](https://github.com/Jozdien/HPMOR_NLP/blob/master/Graphs/Disperson%20Keyword%20Appearances.png "Dispersion Plot of Keyword Positions in the Book")
 
 I chose a few keywords that seemed representative of the story at large, even if they aren't mentioned as often.  
 
