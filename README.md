@@ -17,7 +17,7 @@ I look at the following things:
 
 ### Number of Words and Sentences per Chapter
 
-![Count of Words and Sentences in Each Chapter]( "Count of Words and Sentences in Each Chapter")
+![Count of Words and Sentences in Each Chapter](https://github.com/Jozdien/HPMOR_NLP/blob/master/Graphs/Count%20of%20Words%20and%20Sentences%20in%20Each%20Chapter.png "Count of Words and Sentences in Each Chapter")
 
 Chapter lengths vary dramatically, with some chapters approacing the 10k word cap, and others trailing behind with less than a thousand words (and chapters like 99 representing a significant outlier).  The median range seems to be of 2000-4000 word chapters.
 
