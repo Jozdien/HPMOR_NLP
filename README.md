@@ -4,24 +4,15 @@ Harry Potter and the Methods of Rationality by Eliezer Yudkowsky is the best boo
 
 I look at the following things:
 
-[The number of words and sentences in each chapter](#number-of-words-and-sentences-per-chapter)
-
-[The normalized number of words and sentences in each chapter](#normalized-number-of-words-and-sentences-per-chapter)
-
-[The number of words in each sentence](#number-of-words-per-sentence)
-
-[The most common words and their frequencies](#most-common-words)
-
-[The most common words and their frequencies in each chapter](#most-common-words-per-chapter)
-
-[Frequencies of word lengths](#frequencies-of-word-lengths)
-
-[Average word lengths across chapters](#average-word-length-per-chapter)
-
-[Relative positions and dispersion of keywords](#disperson-of-keywords)
-
-[Relative positions and dispersion of positive and negative sentences - Sentiment Analysis](#sentiment-analysis)
-
+* [The number of words and sentences in each chapter](#number-of-words-and-sentences-per-chapter)
+* [The normalized number of words and sentences in each chapter](#normalized-number-of-words-and-sentences-per-chapter)
+* [The number of words in each sentence](#number-of-words-per-sentence)
+* [The most common words and their frequencies](#most-common-words)
+* [The most common words and their frequencies in each chapter](#most-common-words-per-chapter)
+* [Frequencies of word lengths](#frequencies-of-word-lengths)
+* [Average word lengths across chapters](#average-word-length-per-chapter)
+* [Relative positions and dispersion of keywords](#disperson-of-keywords)
+* [Relative positions and dispersion of positive and negative sentences - Sentiment Analysis](#sentiment-analysis)
 
 
 ### Number of Words and Sentences per Chapter
