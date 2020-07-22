@@ -249,7 +249,7 @@ def plot_dispersion_sentiments(factor):
 	plt.figure(8)
 	plt.scatter(positive_sentences_locations_axis, positive_sentences_axis, marker = '|', color='#1f77b4')
 	plt.scatter(negative_sentences_locations_axis, negative_sentences_axis, marker = '|', color='#1f77b4')
-	for chapter in range(math.ceil(factor/30)):
+	for chapter in range(122):
 		plt.axvline(chapter_sentence_length_cumulative[chapter], color='#E56967', linestyle='dotted', linewidth=1)
 	plt.xlabel('Position')
 	plt.ylabel('Sentiment')
@@ -268,14 +268,14 @@ def plot_chapter_word_frequency(no):
 
 keywords = ['death', 'science', 'space', 'rationality', 'human', 'bias', 'fallacy', 'error', 'plot', 'game', 'battle', 'Dark']
 
-plot_words_sents_per_chapter()
-plot_norm_words_sents_per_chapter()
-plot_words_per_sentence()
-plot_word_frequencies()
-plot_word_length_frequency()
-plot_avg_word_length()
-plot_dispersion_keywords(keywords)
-plot_dispersion_sentiments(10)  # Larger the factor, more time it'll take.  1 => couple of seconds, 100 => roughly 20 minutes, 10000 => complete book
-plot_chapter_word_frequency(45)
+#plot_words_sents_per_chapter()
+#plot_norm_words_sents_per_chapter()
+#plot_words_per_sentence()
+#plot_word_frequencies()
+#plot_word_length_frequency()
+#plot_avg_word_length()
+#plot_dispersion_keywords(keywords)
+#plot_dispersion_sentiments(2500)  # Larger the factor, more time it'll take.  1 => couple of seconds, 100 => roughly 20 minutes, 10000 => complete book
+#plot_chapter_word_frequency(45)
 
 plt.show()
