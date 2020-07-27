@@ -235,8 +235,16 @@ def plot_dispersion_keywords(words):
 	plt.ylabel('Word')
 	plt.title('Dispersion Plot of Keyword Positions in the Book')
 
-def plot_dispersion_sentiments(factor):
-	for sentence in range(round(len(sentences_complete) * factor/10000)):
+def plot_dispersion_sentiments(chapter):
+	positive_sentences = []
+	negative_sentences = []
+	if chapter == 0:
+		begin = 0
+		end = chapter_sentence_length_cumulative[chapter]
+	else:
+		begin = chapter_sentence_length_cumulative[chapter - 1]
+		end = chapter_sentence_length_cumulative[chapter]
+	for sentence in range(begin, end):
 		sentence_blob = TextBlob(sentences_complete[sentence], analyzer=NaiveBayesAnalyzer())
 		if sentence_blob.sentiment.p_pos > 0.5:
 			positive_sentences.append(sentence)
@@ -246,14 +254,15 @@ def plot_dispersion_sentiments(factor):
 	negative_sentences_locations_axis = np.array(negative_sentences)
 	positive_sentences_axis = ["Positive Sentences"] * len(positive_sentences)
 	negative_sentences_axis = ["Negative Sentences"] * len(negative_sentences)
-	plt.figure(8)
+	plt.figure(figsize=(15.0, 5.0))
 	plt.scatter(positive_sentences_locations_axis, positive_sentences_axis, marker = '|', color='#1f77b4')
 	plt.scatter(negative_sentences_locations_axis, negative_sentences_axis, marker = '|', color='#1f77b4')
-	for chapter in range(122):
-		plt.axvline(chapter_sentence_length_cumulative[chapter], color='#E56967', linestyle='dotted', linewidth=1)
 	plt.xlabel('Position')
 	plt.ylabel('Sentiment')
 	plt.title('Dispersion Plot of Positive and Negative Sentences in the Book')
+	name = "Chapter " + str(chapter+1) + " - " + chapter_names[chapter] + ".png"
+	plt.savefig(name)
+	plt.close()
 
 def plot_chapter_word_frequency(no):
 	chapter_fdist = FreqDist(chapter_words[no - 1]).most_common(20)
@@ -268,14 +277,15 @@ def plot_chapter_word_frequency(no):
 
 keywords = ['death', 'science', 'space', 'rationality', 'human', 'bias', 'fallacy', 'error', 'plot', 'game', 'battle', 'Dark']
 
-#plot_words_sents_per_chapter()
-#plot_norm_words_sents_per_chapter()
-#plot_words_per_sentence()
-#plot_word_frequencies()
-#plot_word_length_frequency()
-#plot_avg_word_length()
-#plot_dispersion_keywords(keywords)
-#plot_dispersion_sentiments(2500)  # Larger the factor, more time it'll take.  1 => couple of seconds, 100 => roughly 20 minutes, 10000 => complete book
-#plot_chapter_word_frequency(45)
+plot_words_sents_per_chapter()
+plot_norm_words_sents_per_chapter()
+plot_words_per_sentence()
+plot_word_frequencies()
+plot_word_length_frequency()
+plot_avg_word_length()
+plot_dispersion_keywords(keywords)
+plot_chapter_word_frequency(45)
+for i in range(122):
+	plot_dispersion_sentiments(i)  
 
 plt.show()
