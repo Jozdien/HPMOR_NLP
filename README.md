@@ -89,5 +89,6 @@ I chose a few keywords that seemed representative of the story at large, even if
 
 ### Sentiment Analysis
 
-![Dispersion Plot of Positive and Negative Sentences in the Book]( "Dispersion Plot of Positive and Negative Sentences in the Book")
+The Sentiment Analysis results for each chapter can be seen in a folder inside the Graphs folder.
 
+As you can see, the graphs show little correlation to the actual positivity or negativity of a chapter, thereby proving that this method of sentiment analysis is utterly pointless in the analysis of actual themes in text, and that I wasted three days of computing power on those graphs.
