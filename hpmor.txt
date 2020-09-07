@@ -319,9 +319,6 @@ Then a boy's voice said, calmly and quietly, "What."
 Everything I Believe Is False
 
 
-#include "stddisclaimer.h"
-
-
 
 * * *
 
