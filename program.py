@@ -284,81 +284,89 @@ Part IV - Usage
 '''
 
 
-print("Which of the following plots would you like to see?")
-print("1. Distribution of Words and Sentences per Chapter")
-print("2. Normalized Distribution of Words and Sentences per Chapter")
-print("3. Distribution of Words per Sentence")
-print("4. Distribution of the Most Common Words and their Frequencies")
-print("5. Distribution of the Most Common Words and their Frequencies in Each Chapter")
-print("6. Distribution of Word Lengths and their Frequencies")
-print("7. Distribution of Average Word Length across Chapters")
-print("8. Dispersion of Keyword Positions")
-print("9. Sentiment Analysis of Each Chapter")
-print("If you have multiple choices, enter them separated by comma, or if a range, the first number and the last number separated by a hyphen.")
-print("Example: To choose 1 and 4, give the input '1,4' and to choose all of them, choose '1-9'.")
-functions = [plot_words_sents_per_chapter, plot_norm_words_sents_per_chapter, plot_words_per_sentence, plot_word_frequencies, plot_chapter_word_frequency, 
-			 plot_word_length_frequency, plot_avg_word_length, plot_dispersion_keywords, plot_dispersion_sentiments]
+keep_going = True
 
-while True:
-	choice = input()
-	chosen = []
-	if len(choice) == 1:
-		if not choice.isnumeric():
-			print("Enter valid input, you blithering moron.")
-			continue
-		chosen = [functions[int(choice) - 1]]
-	elif len(choice) == 3:
-		if not choice[0].isnumeric() or choice[1] not in ',-' or not choice[2].isnumeric():
-			print("Enter valid input, you blithering moron.")
-			continue
-		if choice[1] == ',':
-			chosen = [functions[int(choice[0]) - 1], functions[int(choice[2]) - 1]]
+while keep_going:
+	print("Which of the following plots would you like to see?")
+	print("1. Distribution of Words and Sentences per Chapter")
+	print("2. Normalized Distribution of Words and Sentences per Chapter")
+	print("3. Distribution of Words per Sentence")
+	print("4. Distribution of the Most Common Words and their Frequencies")
+	print("5. Distribution of the Most Common Words and their Frequencies in Each Chapter")
+	print("6. Distribution of Word Lengths and their Frequencies")
+	print("7. Distribution of Average Word Length across Chapters")
+	print("8. Dispersion of Keyword Positions")
+	print("9. Sentiment Analysis of Each Chapter (The graph will be saved to the folder)")
+	print("10. Exit the program")
+	print("If you have multiple choices, enter them separated by comma, or if a range, the first number and the last number separated by a hyphen.")
+	print("Example: To choose 1 and 4, give the input '1,4' and to choose all of them, choose '1-9'.  To exit, give just '10'.  All without the quotes, obviously.")
+	functions = [plot_words_sents_per_chapter, plot_norm_words_sents_per_chapter, plot_words_per_sentence, plot_word_frequencies, plot_chapter_word_frequency, 
+				 plot_word_length_frequency, plot_avg_word_length, plot_dispersion_keywords, plot_dispersion_sentiments]
+
+	while True:
+		choice = input()
+		chosen = []
+
+		if choice == "10":
+			keep_going = False
+			break
+		if len(choice) == 1:
+			if not choice.isnumeric():
+				print("Enter valid input, you blithering moron.")
+				continue
+			chosen = [functions[int(choice) - 1]]
+		elif len(choice) == 3:
+			if not choice[0].isnumeric() or choice[1] not in ',-' or not choice[2].isnumeric():
+				print("Enter valid input, you blithering moron.")
+				continue
+			if choice[1] == ',':
+				chosen = [functions[int(choice[0]) - 1], functions[int(choice[2]) - 1]]
+			else:
+				chosen = [functions[i] for i in range(int(choice[0]) - 1, int(choice[2]))]
+		elif len(choice) % 2 == 1:
+			flag = 0
+			for i in range(0, len(choice) - 2, 2):
+				if not choice[i].isnumeric() or choice[i + 1] != ',':
+					flag = 1
+				chosen.append(functions[int(choice[i]) - 1])
+				chosen.append(functions[int(choice[i + 2]) - 1])
+			if flag == 1:
+				print("Enter valid input, you blithering moron.")
+				continue
+			if not choice[-1].isnumeric():
+				print("Enter valid input, you blithering moron.")
+				continue
 		else:
-			chosen = [functions[i] for i in range(int(choice[0]) - 1, int(choice[2]))]
-	elif len(choice) % 2 == 1:
-		flag = 0
-		for i in range(0, len(choice) - 2, 2):
-			if not choice[i].isnumeric() or choice[i + 1] != ',':
-				flag = 1
-			chosen.append(functions[int(choice[i]) - 1])
-			chosen.append(functions[int(choice[i + 2]) - 1])
-		if flag == 1:
 			print("Enter valid input, you blithering moron.")
 			continue
-		if not choice[-1].isnumeric():
-			print("Enter valid input, you blithering moron.")
-			continue
-	else:
-		print("Enter valid input, you blithering moron.")
-		continue
-	break
-
-if plot_chapter_word_frequency in chosen:
-	print("On which chapter would you like the distribution of most common words and their frequencies?")
-	while True:
-		chapter = input()
-		if not chapter.isnumeric() or int(chapter) < 1 or int(chapter) > 122:
-			print("Try again, you gibbering dullard.")
-			continue
 		break
-	plot_chapter_word_frequency(int(chapter))
-	chosen.remove(plot_chapter_word_frequency)
 
-if plot_dispersion_sentiments in chosen:
-	print("On which chapter would you like the sentiment analysis dispersion? Because it takes a while to generate it for a given chapter, you're limited to one per go.")
-	while True:
-		chapter = input()
-		if not chapter.isnumeric() or int(chapter) < 1 or int(chapter) > 122:
-			print("Try again, you gibbering dullard.")
-			continue
-		break
-	plot_dispersion_sentiments(int(chapter) - 1)
-	chosen.remove(plot_dispersion_sentiments)
+	if plot_chapter_word_frequency in chosen:
+		print("On which chapter would you like the distribution of most common words and their frequencies?")
+		while True:
+			chapter = input()
+			if not chapter.isnumeric() or int(chapter) < 1 or int(chapter) > 122:
+				print("Try again, you gibbering dullard.")
+				continue
+			break
+		plot_chapter_word_frequency(int(chapter))
+		chosen.remove(plot_chapter_word_frequency)
 
-for function in chosen:
-	function()
+	if plot_dispersion_sentiments in chosen:
+		print("On which chapter would you like the sentiment analysis dispersion? Because it takes a while to generate it for a given chapter, you're limited to one per go.")
+		while True:
+			chapter = input()
+			if not chapter.isnumeric() or int(chapter) < 1 or int(chapter) > 122:
+				print("Try again, you gibbering dullard.")
+				continue
+			break
+		plot_dispersion_sentiments(int(chapter) - 1)
+		chosen.remove(plot_dispersion_sentiments)
 
-plt.show()
+	for function in chosen:
+		function()
+
+	plt.show()
 
 
 
